@@ -1,0 +1,74 @@
+[
+    {
+    "id": 1,
+    "nombre": "Aniolotis",
+    "precio": 1111,
+    "descripcion": "'El verdadero sabor esta en la primera.",
+    "img": "../assets/imgProdc/miniAniolotis.jpg",
+    "categoria": "Mas Vendido"
+    },
+        {
+    "id": 2,
+    "nombre": "Empanadas",
+    "precio": 1111,
+    "descripcion": "'El verdadero sabor esta en la primera.",
+    "img": "../assets/imgProdc/miniempanadas.jpg",
+    "categoria": "Mas Vendido"
+    },
+        {
+    "id": 3,
+    "nombre": "Fideos de Salsa Blanca",
+    "precio": 1111,
+    "descripcion": "'El verdadero sabor esta en la primera.",
+    "img": "../assets/imgProdc/minifideossalsablanca.jpg",
+    "categoria": "Mas Vendido"
+    },
+        {
+    "id": 4,
+    "nombre": "Matambre",
+    "precio": 1111,
+    "descripcion": "'El verdadero sabor esta en la primera.",
+    "img": "../assets/imgProdc/minimatambre.jpg",
+    "categoria": "Mas Vendido"
+    },
+        {
+    "id": 5,
+    "nombre": "Ñoquis",
+    "precio": 1111,
+    "descripcion": "'El verdadero sabor esta en la primera.",
+    "img": "../assets/imgProdc/mininioquis.jpg",
+    "categoria": "Mas Vendido"
+    },
+        {
+    "id": 6,
+    "nombre": "Pizza",
+    "precio": 1111,
+    "descripcion": "'El verdadero sabor esta en la primera.",
+    "img": "../assets/imgProdc/minipizza.png",
+    "categoria": "Mas Vendido"
+    },
+        {
+    "id": 7,
+    "nombre": "Ravioles",
+    "precio": 1111,
+    "descripcion": "'El verdadero sabor esta en la primera.",
+    "img": "../assets/imgProdc/miniravioles.jpg",
+    "categoria": "Mas Vendido"
+    },
+        {
+    "id": 8,
+    "nombre": "Sorrentinos de Molin",
+    "precio": 1111,
+    "descripcion": "'El verdadero sabor esta en la primera.",
+    "img": "../assets/imgProdc/minisorrentinosdesemolin.jpg",
+    "categoria": "Mas Vendido"
+    },
+        {
+    "id": 9,
+    "nombre": "Wraps Veganos",
+    "precio": 1111,
+    "descripcion": "'El verdadero sabor esta en la primera.",
+    "img": "../assets/imgProdc/miniWrapsveganos.jpg",
+    "categoria": "Mas Vendido"
+    }    
+]

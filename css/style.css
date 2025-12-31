@@ -1,0 +1,416 @@
+@charset "UTF-8";
+/* ==========================================================
+   0) Tipografías (fallbacks para que no se rompa si una página
+      no tiene la misma <link> de Google Fonts)
+   ========================================================== */
+/* ==========================================================
+   1) Paleta / Tema común (cálido tipo pastas)
+   ========================================================== */
+/* ==========================================================
+   2) Reset / Base
+   ========================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Geom", "Cal Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #1f1f1f;
+  background: radial-gradient(1200px 600px at 100% -10%, rgba(201, 162, 75, 0.1), transparent 60%), radial-gradient(900px 500px at -10% 110%, rgba(178, 58, 47, 0.08), transparent 60%), linear-gradient(180deg, #fbf7f0 0%, #fff 100%);
+}
+
+/* Links generales */
+a {
+  color: #b23a2f;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+a:hover {
+  color: #c84a3e;
+}
+
+/* Títulos */
+h1, h2, h3, h4 {
+  letter-spacing: 0.2px;
+  margin: 0 0 0.6rem 0;
+}
+
+/* ==========================================================
+   3) NAVBAR / OFFCANVAS (sirve para index y para carrito)
+   ========================================================== */
+.navbar {
+  /* leve upgrade visual sin romper Bootstrap */
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.86) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  flex-wrap: nowrap;
+  padding: 0 1rem;
+}
+.navbar .navbar-brand {
+  font-family: "Dancing Script", "DM Serif Text", Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+.navbar {
+  /* Texto dentro del offcanvas (index: menú / productos: carrito) */
+}
+.navbar .offcanvas-title {
+  font-family: "Pinyon Script", "Story Script", "Dancing Script", cursive;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+.navbar .nav-link {
+  font-family: "Geom", "Cal Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 600;
+}
+
+/* Offcanvas siempre a la derecha (tu requisito) */
+.offcanvas.offcanvas-end {
+  height: 100vh;
+  max-height: 100vh;
+  top: 0;
+  bottom: 0;
+}
+.offcanvas.offcanvas-end .offcanvas-body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+}
+
+/* Buscador del index: botón “Buscar” */
+.btn-outline-success {
+  border-color: rgba(47, 111, 78, 0.45);
+  color: #2f6f4e;
+}
+.btn-outline-success:hover {
+  background: rgba(47, 111, 78, 0.08);
+  color: rgb(34.8632911392, 82.3367088608, 57.8582278481);
+}
+
+/* ==========================================================
+   4) INDEX: Hero (tu .contenedor-imagen y .texto-superpuesto)
+   - No toco HTML, lo hago compatible con tu markup actual
+   ========================================================== */
+/* Ojo: en tu HTML el <div> y el <img> comparten la misma clase
+   "contenedor-imagen". Este SCSS lo soporta así igual. */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 70vh;
+  overflow: hidden;
+  /* si es el IMG (porque también tiene esa clase) */
+}
+.hero.hero__img {
+  display: block;
+}
+.hero {
+  /* apunta al img dentro del div */
+}
+.hero > img,
+.hero img.hero__img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.05) contrast(1.02);
+}
+.hero {
+  /* overlay de texto */
+}
+.hero .texto-superpuesto {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  padding: 1.25rem;
+}
+.hero {
+  /* hacemos que el bloque sea caja real */
+}
+.hero .texto-superpuesto::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.541), rgba(0, 0, 0, 0.05));
+}
+.hero .texto-superpuesto {
+  /* El panel */
+}
+.hero .texto-superpuesto h1, .hero .texto-superpuesto h2, .hero .texto-superpuesto p {
+  position: relative;
+  margin: 0;
+}
+.hero .texto-superpuesto {
+  /* Caja panel (simulamos un panel con padding) */
+}
+.hero .texto-superpuesto h1 {
+  font-family: "Dancing Script", "DM Serif Text", Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  margin-bottom: 0.6rem;
+}
+.hero .texto-superpuesto h2 {
+  font-family: "Geom", "Cal Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  color: rgba(255, 255, 255, 0.92);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.hero .texto-superpuesto p {
+  font-family: "Pinyon Script", "Story Script", "Dancing Script", cursive;
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  color: rgba(255, 255, 255, 0.92);
+  text-align: center;
+  max-width: 52ch;
+  margin-inline: auto;
+}
+.hero .texto-superpuesto {
+  /* Panel semi-transparente detrás del texto */
+  padding: 1.25rem;
+  /* panel */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* “card” */
+  gap: 0.25rem;
+}
+
+/* ==========================================================
+   5) PRODUCTOS: Grid #contenedor + cards + carrito
+   ========================================================== */
+/* Título */
+#titulo {
+  margin-top: 6rem; /* por navbar fixed-top */
+  font-family: "Dancing Script", "DM Serif Text", Georgia, serif;
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  text-align: center;
+}
+
+/* Grid contenedor */
+#contenedor {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 22px;
+  padding: clamp(12px, 2vw, 24px);
+}
+#contenedor > div {
+  grid-column: span 12;
+}
+@media (min-width: 600px) {
+  #contenedor > div {
+    grid-column: span 6;
+  }
+}
+@media (min-width: 992px) {
+  #contenedor > div {
+    grid-column: span 4;
+  }
+}
+
+/* Tarjetas (tu JS crea: <div> ... <img class="card-img-top"> <div class="card-body"> ... ) */
+#contenedor > div {
+  background: linear-gradient(180deg, #fff 0%, #fbf7f0 100%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: 0.25s ease;
+  width: 100%; /* <-- clave: NO fijamos 25rem (rompía el grid) */
+  max-width: 520px; /* limita el ancho si hay pantallas grandes */
+  margin-inline: auto;
+}
+#contenedor > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+}
+#contenedor > div .card-img-top {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+#contenedor > div .card-body {
+  padding: 16px 16px 18px;
+}
+#contenedor > div .card-body .card-title {
+  margin: 2px 0 6px;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #1f1f1f;
+}
+#contenedor > div .card-body .badge,
+#contenedor > div .card-body .text-bg-primary {
+  background: linear-gradient(135deg, #c9a24b, rgb(212.7692307692, 182.2692307692, 114.2307692308));
+  color: #2f2a1f;
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  padding: 6px 10px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+#contenedor > div .card-body .card-text {
+  color: #6b6b6b;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin: 8px 0 12px;
+}
+#contenedor > div .card-body .price {
+  font-weight: 900;
+  color: #b23a2f;
+  font-size: 1.1rem;
+  letter-spacing: 0.3px;
+  margin: 6px 0 12px;
+}
+#contenedor > div .card-body .price::before {
+  content: "• ";
+  color: #2f6f4e;
+  margin-right: 4px;
+}
+
+/* Botones (armoniza con Bootstrap sin pelearse) */
+.btn {
+  border-radius: 12px;
+  transition: 0.2s ease;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-outline-success {
+  border-color: rgba(178, 58, 47, 0.45);
+  color: #b23a2f;
+}
+.btn-outline-success:hover {
+  background: rgba(178, 58, 47, 0.08);
+  color: #c84a3e;
+}
+
+.btn-danger {
+  background: #7a2f2f;
+  border-color: transparent;
+}
+.btn-danger:hover {
+  background: #913b3b;
+}
+
+/* Carrito dentro del offcanvas (tu <div id="carrito"></div>) */
+#carrito {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 14px;
+  /* items que vos creás con d-flex etc */
+}
+#carrito > div {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  padding: 10px;
+}
+#carrito .img2 {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #fff;
+}
+#carrito .precioCarrito {
+  color: #1f1f1f;
+  font-weight: 800;
+}
+#carrito .qty {
+  background: linear-gradient(135deg, #2f6f4e, rgb(34.8632911392, 82.3367088608, 57.8582278481));
+  color: #fff;
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+#carrito .total {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.15);
+  color: #b23a2f;
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+/* Footer botón subir (mejor posición sin tocar HTML) */
+.BotonFooter {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(201, 162, 75, 0.6);
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  z-index: 50;
+}
+.BotonFooter:hover {
+  background: rgba(201, 162, 75, 0.18);
+}
+
+/* SweetAlert botón confirmar */
+.swal2-confirm {
+  background: #198754;
+}
+.swal2-confirm:hover {
+  background: #116d42;
+}
+
+/* Ajuste visual del offcanvas */
+#offcanvasNavbar {
+  justify-content: flex-start;
+}
+
+/*quienes somos??*/
+.nosotrosdiv {
+  display: flex;
+}
+.nosotrosdiv .texto-nosotros {
+  margin: 11rem;
+  width: 40rem;
+  padding: 6rem;
+}
+.nosotrosdiv .divnosotros {
+  padding: 5rem;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.nosotrosdiv .divnosotros .imgnost1 {
+  margin-top: 2rem;
+  margin-left: 11rem;
+  display: flex;
+  flex-direction: row;
+  align-content: space-around;
+  border-radius: 3rem;
+  padding: 1rem;
+}
+.nosotrosdiv .divnosotros .imgnost2 {
+  border-radius: 3rem;
+  padding-left: -2rem;
+}
+.nosotrosdiv .divnosotros .imgnost3 {
+  margin-left: 5rem;
+  border-radius: 3rem;
+}
+
+.botoninsta {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-right: 3rem;
+}
+
+/*# sourceMappingURL=style.css.map */

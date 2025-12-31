@@ -1,0 +1,399 @@
+@charset "UTF-8";
+/* -----------------------------
+   1) Variables de tema
+--------------------------------*/
+/* -----------------------------
+   2) Reset mínimo & base
+--------------------------------*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  color: #2b2a29;
+  background: radial-gradient(1200px 600px at 100% -10%, rgba(201, 162, 75, 0.08), transparent 60%), radial-gradient(900px 500px at -10% 110%, rgba(196, 99, 58, 0.08), transparent 60%), linear-gradient(180deg, #f8f3ec 0%, #fff 100%);
+}
+
+header div {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+/* Enlaces */
+a {
+  color: #c4633a;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+a:hover {
+  color: #d97a4f;
+}
+
+/* Tipografías utilitarias (si tu HTML ya las usa, se aplican) */
+h1, h2, h3, h4 {
+  letter-spacing: 0.2px;
+  text-align: center;
+}
+
+h1 {
+  font-family: "Georgia", "Times New Roman", serif;
+}
+
+/* -----------------------------
+   3) Layout del contenedor de productos
+   (no modifica HTML; estiliza #contenedor y sus hijos)
+--------------------------------*/
+#contenedor {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 22px;
+  padding: clamp(12px, 2vw, 24px);
+}
+#contenedor > div {
+  grid-column: span 12;
+}
+@media (min-width: 600px) {
+  #contenedor > div {
+    grid-column: span 6;
+  }
+}
+@media (min-width: 992px) {
+  #contenedor > div {
+    grid-column: span 4;
+  }
+}
+
+/* -----------------------------
+   4) Tarjetas de producto (.card y elementos internos)
+   (sobrescribe estilos comunes, ej. Bootstrap si existe)
+--------------------------------*/
+.card,
+#contenedor > div {
+  background: linear-gradient(180deg, #fff 0%, #f8f3ec 100%);
+  border: 1px solid rgba(43, 42, 41, 0.06);
+  border-radius: 18px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  width: 25rem;
+}
+.card:hover,
+#contenedor > div:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+.card .card-img-top,
+.card img.card-img-top,
+.card > img:first-child,
+#contenedor > div .card-img-top,
+#contenedor > div img.card-img-top,
+#contenedor > div > img:first-child {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+.card .card-body,
+.card > .card-body,
+#contenedor > div .card-body,
+#contenedor > div > .card-body {
+  padding: 16px 16px 18px;
+}
+.card .card-body .card-title,
+.card > .card-body .card-title,
+#contenedor > div .card-body .card-title,
+#contenedor > div > .card-body .card-title {
+  margin: 2px 0 6px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #2b2a29;
+}
+.card .card-body .badge,
+.card .card-body .text-bg-primary,
+.card > .card-body .badge,
+.card > .card-body .text-bg-primary,
+#contenedor > div .card-body .badge,
+#contenedor > div .card-body .text-bg-primary,
+#contenedor > div > .card-body .badge,
+#contenedor > div > .card-body .text-bg-primary {
+  background: linear-gradient(135deg, #c9a24b, rgb(210.4153846154, 178.2153846154, 106.3846153846));
+  color: #2f2a1f;
+  border: none;
+  border-radius: 999px;
+  font-weight: 600;
+  padding: 6px 10px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+.card .card-body .card-text,
+.card > .card-body .card-text,
+#contenedor > div .card-body .card-text,
+#contenedor > div > .card-body .card-text {
+  color: #4b4a49;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin: 8px 0 12px;
+}
+.card .card-body .price,
+.card > .card-body .price,
+#contenedor > div .card-body .price,
+#contenedor > div > .card-body .price {
+  font-weight: 800;
+  color: #c4633a;
+  font-size: 1.1rem;
+  letter-spacing: 0.3px;
+  margin: 6px 0 12px;
+}
+.card .card-body .price::before,
+.card > .card-body .price::before,
+#contenedor > div .card-body .price::before,
+#contenedor > div > .card-body .price::before {
+  content: "• ";
+  color: #7c8755;
+  margin-right: 4px;
+}
+
+/* -----------------------------
+   5) Botones (aplica a .btn y variantes comunes)
+--------------------------------*/
+.btn {
+  --btn-bg: #fff;
+  --btn-text: $ink-900;
+  --btn-border: rgba(43,42,41,.2);
+  --btn-bg-hover: $warm-cream;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--btn-border);
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn:hover {
+  background: var(--btn-bg-hover);
+  transform: translateY(-1px);
+}
+.btn.btn-outline-success {
+  --btn-text: $warm-terracotta;
+  --btn-border: rgba(196,99,58,.45);
+  --btn-bg-hover: rgba(196,99,58,.08);
+}
+.btn.btn-outline-success:hover {
+  color: #d97a4f;
+}
+.btn.btn-success {
+  --btn-bg: $warm-terracotta;
+  --btn-text: #fff;
+  --btn-border: transparent;
+  --btn-bg-hover: $warm-clay;
+}
+.btn.btn-danger {
+  --btn-bg: #7a2f2f;
+  --btn-text: #fff;
+  --btn-border: transparent;
+  --btn-bg-hover: #913b3b;
+}
+.btn.btn-sm {
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+/* -----------------------------
+   6) Carrito (#carrito) y elementos internos
+--------------------------------*/
+#carrito {
+  background: linear-gradient(180deg, #f8f3ec 0%, #fff 100%);
+  border: 1px solid rgba(43, 42, 41, 0.06);
+  border-radius: 18px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  padding: 14px;
+  max-width: 680px;
+  margin-inline: auto;
+  transition: all 0.3s ease;
+}
+#carrito .img2 {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid rgba(43, 42, 41, 0.08);
+  background: #fff;
+}
+#carrito .precioCarrito {
+  color: #2b2a29;
+  font-weight: 700;
+}
+#carrito .qty {
+  background: linear-gradient(135deg, #7c8755, rgb(106.7527272727, 116.2227272727, 73.1772727273));
+  color: #fff;
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+#carrito .total {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(43, 42, 41, 0.15);
+  color: #c4633a;
+  font-size: 1.1rem;
+  letter-spacing: 0.3px;
+}
+
+/* -----------------------------
+   7) Navegación / Links del carrito
+--------------------------------*/
+#linkCarrito {
+  position: relative;
+  font-weight: 700;
+}
+#linkCarrito::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 -6px 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #c4633a, transparent);
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+#linkCarrito:hover::after {
+  opacity: 0.9;
+}
+
+/* -----------------------------
+   8) Offcanvas / paneles (si existen)
+--------------------------------*/
+.offcanvas,
+.offcanvas-start,
+.offcanvas-end {
+  background: linear-gradient(180deg, #fff 0%, #f8f3ec 100%);
+  border-left: 1px solid rgba(43, 42, 41, 0.08);
+  border-right: 1px solid rgba(43, 42, 41, 0.08);
+}
+.offcanvas .offcanvas-header,
+.offcanvas-start .offcanvas-header,
+.offcanvas-end .offcanvas-header {
+  border-bottom: 1px solid rgba(43, 42, 41, 0.08);
+}
+.offcanvas .offcanvas-header .offcanvas-title,
+.offcanvas-start .offcanvas-header .offcanvas-title,
+.offcanvas-end .offcanvas-header .offcanvas-title {
+  font-weight: 800;
+  color: #2b2a29;
+}
+.offcanvas .offcanvas-body,
+.offcanvas-start .offcanvas-body,
+.offcanvas-end .offcanvas-body {
+  color: #4b4a49;
+}
+
+/* -----------------------------
+   9) Estados vacíos y mensajes
+--------------------------------*/
+.text-muted {
+  color: #6b6967 !important;
+}
+
+#carrito p.text-muted,
+#contenedor .empty,
+.empty-state {
+  background: rgba(233, 217, 192, 0.45);
+  border: 1px dashed rgba(201, 162, 75, 0.6);
+  color: #4b4a49;
+  padding: 14px;
+  border-radius: 12px;
+}
+
+/* -----------------------------
+   10) Accesibilidad & focus
+--------------------------------*/
+:focus-visible {
+  outline: 2px solid rgba(201, 162, 75, 0.9);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* -----------------------------
+   11) Animaciones sutiles
+--------------------------------*/
+@keyframes subtle-pop {
+  0% {
+    transform: scale(0.98);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+#carrito > div,
+#contenedor > div {
+  animation: subtle-pop 0.25s ease-out;
+}
+
+/* -----------------------------
+   12) Helpers (opcionales)
+--------------------------------*/
+.shadow-soft {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08) !important;
+}
+
+.rounded-lg {
+  border-radius: 18px !important;
+}
+
+.rounded-md {
+  border-radius: 12px !important;
+}
+
+.badge-warm {
+  background: #c9a24b;
+  color: #2f2a1f;
+}
+
+/*boton confirmar eliminar producto*/
+.swal2-confirm {
+  background: #198754;
+}
+.swal2-confirm:hover {
+  background: #116d42;
+}
+
+.BotonFooter {
+  padding: 1rem;
+  border: 1px solid rgba(201, 162, 75, 0.6);
+  border-radius: 1rem;
+  margin-left: 93.3vw;
+}
+.BotonFooter:hover {
+  background: rgba(201, 162, 75, 0.6);
+}
+
+#carrito {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#offcanvasNavbar {
+  justify-content: flex-start;
+}
+
+/*# sourceMappingURL=productos.css.map */
