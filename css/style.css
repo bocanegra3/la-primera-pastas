@@ -119,6 +119,12 @@ h1, h2, h3, h4 {
   display: block;
   filter: saturate(1.05) contrast(1.02);
 }
+@media (max-width: 768px) {
+  .hero > img,
+  .hero img.hero__img {
+    height: 99vh;
+  }
+}
 .hero {
   /* overlay de texto */
 }
@@ -128,6 +134,12 @@ h1, h2, h3, h4 {
   display: grid;
   place-content: center;
   padding: 1.25rem;
+}
+@media (max-width: 768px) {
+  .hero .texto-superpuesto {
+    background-color: rgba(251, 247, 240, 0.4117647059);
+    margin: 9rem 0;
+  }
 }
 .hero {
   /* hacemos que el bloque sea caja real */
@@ -157,6 +169,11 @@ h1, h2, h3, h4 {
   text-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
   margin-bottom: 0.6rem;
 }
+@media (max-width: 768px) {
+  .hero .texto-superpuesto h1 {
+    font-size: 2.3rem;
+  }
+}
 .hero .texto-superpuesto h2 {
   font-family: "Geom", "Cal Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   font-weight: 700;
@@ -165,6 +182,11 @@ h1, h2, h3, h4 {
   text-align: center;
   margin-bottom: 1rem;
 }
+@media (max-width: 768px) {
+  .hero .texto-superpuesto h2 {
+    font-size: 2rem;
+  }
+}
 .hero .texto-superpuesto p {
   font-family: "Pinyon Script", "Story Script", "Dancing Script", cursive;
   font-size: clamp(1.1rem, 2vw, 1.6rem);
@@ -172,6 +194,11 @@ h1, h2, h3, h4 {
   text-align: center;
   max-width: 52ch;
   margin-inline: auto;
+}
+@media (max-width: 768px) {
+  .hero .texto-superpuesto p {
+    font-size: 1.7rem;
+  }
 }
 .hero .texto-superpuesto {
   /* Panel semi-transparente detrás del texto */
@@ -379,15 +406,33 @@ h1, h2, h3, h4 {
 .nosotrosdiv {
   display: flex;
 }
+@media (max-width: 768px) {
+  .nosotrosdiv {
+    display: contents;
+  }
+}
 .nosotrosdiv .texto-nosotros {
   margin: 11rem;
   width: 40rem;
   padding: 6rem;
 }
+@media (max-width: 768px) {
+  .nosotrosdiv .texto-nosotros {
+    padding: 10px;
+    width: 100%;
+    margin: 0px;
+    margin-top: 10rem;
+  }
+}
 .nosotrosdiv .divnosotros {
   padding: 5rem;
   flex-direction: column;
   flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+  .nosotrosdiv .divnosotros {
+    padding: 0px;
+  }
 }
 .nosotrosdiv .divnosotros .imgnost1 {
   margin-top: 2rem;
@@ -398,13 +443,30 @@ h1, h2, h3, h4 {
   border-radius: 3rem;
   padding: 1rem;
 }
+@media (max-width: 768px) {
+  .nosotrosdiv .divnosotros .imgnost1 {
+    display: none;
+  }
+}
 .nosotrosdiv .divnosotros .imgnost2 {
   border-radius: 3rem;
   padding-left: -2rem;
 }
+@media (max-width: 768px) {
+  .nosotrosdiv .divnosotros .imgnost2 {
+    padding: 0px;
+    margin-left: 2rem;
+    margin-top: 0px;
+  }
+}
 .nosotrosdiv .divnosotros .imgnost3 {
   margin-left: 5rem;
   border-radius: 3rem;
+}
+@media (max-width: 768px) {
+  .nosotrosdiv .divnosotros .imgnost3 {
+    display: none;
+  }
 }
 
 .botoninsta {

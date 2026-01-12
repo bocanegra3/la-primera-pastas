@@ -140,7 +140,9 @@ h1, h2, h3, h4 {
     object-fit: cover;
     display: block;
     filter: saturate(1.05) contrast(1.02);
+    @media (max-width: 768px){ height:99vh;}
   }
+  
 
   /* overlay de texto */
   .texto-superpuesto {
@@ -149,6 +151,7 @@ h1, h2, h3, h4 {
     display: grid;
     place-content: center;
     padding: 1.25rem;
+    @media (max-width: 768px){ background-color: #fbf7f069; margin: 9rem 0 }
   }
 
   /* hacemos que el bloque sea caja real */
@@ -164,6 +167,7 @@ h1, h2, h3, h4 {
     h1, h2, p {
       position: relative;
       margin: 0;
+    
     }
 
     /* Caja panel (simulamos un panel con padding) */
@@ -175,6 +179,7 @@ h1, h2, h3, h4 {
       text-align: center;
       text-shadow: 0 6px 18px rgba(0,0,0,.35);
       margin-bottom: .6rem;
+          @media (max-width: 768px){font-size: 2.3rem;  }
     }
 
     h2 {
@@ -184,6 +189,7 @@ h1, h2, h3, h4 {
       color: rgba(255,255,255,.92);
       text-align: center;
       margin-bottom: 1rem;
+        @media (max-width: 768px){font-size: 2rem;  }
     }
 
     p {
@@ -193,6 +199,7 @@ h1, h2, h3, h4 {
       text-align: center;
       max-width: 52ch;
       margin-inline: auto;
+        @media (max-width: 768px){font-size: 1.7rem;}
     }
 
     /* Panel semi-transparente detrás del texto */
@@ -403,18 +410,21 @@ h1, h2, h3, h4 {
 
 .nosotrosdiv{
   display:flex;
+    @media (max-width: 768px){ display: contents; }
   .texto-nosotros{
     margin: 11rem;
     width: 40rem;
     padding: 6rem;
+    @media (max-width: 768px){padding: 10px; width:100%;margin:0px;margin-top:10rem;}
   }
   .divnosotros{
     padding:5rem;
     flex-direction: column;
     flex-wrap: wrap;
-    .imgnost1{margin-top: 2rem;margin-left: 11rem;display: flex;flex-direction: row;align-content: space-around;border-radius: 3rem;padding: 1rem;}
-    .imgnost2{border-radius: 3rem;padding-left: -2rem;}
-    .imgnost3{margin-left: 5rem;border-radius: 3rem;}
+    @media (max-width: 768px){ padding: 0px;}
+    .imgnost1{margin-top: 2rem;margin-left: 11rem;display: flex;flex-direction: row;align-content: space-around;border-radius: 3rem;padding: 1rem; @media (max-width: 768px){display: none; }}
+    .imgnost2{border-radius: 3rem;padding-left: -2rem;@media (max-width: 768px){ padding:0px;margin-left:2rem;margin-top:0px }}
+    .imgnost3{margin-left: 5rem;border-radius: 3rem;@media (max-width: 768px){display: none; }}
   }
 }
 
